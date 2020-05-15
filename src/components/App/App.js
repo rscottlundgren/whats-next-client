@@ -8,6 +8,8 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import SingleCardSpread from '../SingleCardSpread/SingleCardSpread'
+import CreateSingleCardSpread from '../CreateSingleCardSpread/CreateSingleCardSpread'
 
 class App extends Component {
   constructor () {
@@ -29,7 +31,11 @@ class App extends Component {
 
   render () {
     const { msgAlerts, user } = this.state
-
+    // 1st: Write a route for the component that you want to do something
+    // i.e. index your readings
+    // 2nd: Create a folder & file with the name of the component as the title
+    // 3rd: write a render and make sure it's hooked up
+    // 4th:
     return (
       <Fragment>
         <Header user={user} />
@@ -53,6 +59,12 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/scs/:id' render={({ match }) => (
+            <SingleCardSpread user={user} match={match}/>
+          )} />
+          <AuthenticatedRoute user={user} path='/create-scs' render={() => (
+            <CreateSingleCardSpread user={user}/>
           )} />
         </main>
       </Fragment>
