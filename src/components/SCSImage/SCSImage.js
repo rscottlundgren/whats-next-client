@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 class SCSImage extends Component {
   constructor () {
@@ -8,9 +8,10 @@ class SCSImage extends Component {
 
   render () {
     return (
-      <Fragment>
-        {this.props.keywords}
-      </Fragment>
+      <img style={{
+        width: 'inherit',
+        margin: '10px'
+      }} src={this.props.image}/>
     )
   }
 }

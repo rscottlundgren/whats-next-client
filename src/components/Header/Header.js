@@ -11,8 +11,6 @@ const authenticatedOptions = (
     </NavDropdown>
     <NavDropdown title="Create A Spread" id="dd-spreads">
       <NavDropdown.Item href="#create-scs">Single Card</NavDropdown.Item>
-      <NavDropdown.Item href="#create-3cs">Three Card</NavDropdown.Item>
-      <NavDropdown.Item href="#create-ccs">Celtic Cross</NavDropdown.Item>
     </NavDropdown>
   </Fragment>
 )
@@ -28,11 +26,13 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
+    { /*
     <NavDropdown title="About..." id="dd-about">
       <NavDropdown.Item href="#tarot-generally">...Tarot, Generally</NavDropdown.Item>
       <NavDropdown.Item href="#major-arcana">...Reading the Major Arcana</NavDropdown.Item>
       <NavDropdown.Item href="#minor-arcana">...Reading the Minor Arcana</NavDropdown.Item>
     </NavDropdown>
+    */ }
   </Fragment>
 )
 

@@ -47,7 +47,7 @@ class App extends Component {
             message={msgAlert.message}
           />
         ))}
-        <main className="container">
+        <main>
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
@@ -61,10 +61,10 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/scs/:id' render={({ match }) => (
-            <SingleCardSpread user={user} match={match}/>
+            <SingleCardSpread msgAlert={this.msgAlert} user={user} match={match}/>
           )} />
           <AuthenticatedRoute user={user} path='/create-scs' render={() => (
-            <CreateSingleCardSpread user={user}/>
+            <CreateSingleCardSpread msgAlert={this.msgAlert} user={user}/>
           )} />
         </main>
       </Fragment>
