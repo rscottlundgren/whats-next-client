@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SCSUpdateForm = ({ thoughts, handleChange, handleSubmit, handleDelete }) => (
+const SCSUpdateForm = ({ thoughts, handleChange, handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <label>How do you feel about this reading at the present moment?</label>
     <textarea
@@ -12,7 +12,6 @@ const SCSUpdateForm = ({ thoughts, handleChange, handleSubmit, handleDelete }) =
     />
 
     <button type="submit">Update</button>
-    <button onClick={handleDelete}>Delete</button>
   </form>
 )
 

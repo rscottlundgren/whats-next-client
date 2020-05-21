@@ -12,6 +12,9 @@ const authenticatedOptions = (
     <NavDropdown title="Create A Spread" id="dd-spreads">
       <NavDropdown.Item href="#create-scs">Single Card</NavDropdown.Item>
     </NavDropdown>
+    <NavDropdown title="Spread History" id="dd-history">
+      <NavDropdown.Item href="#scs">All Single Card Spreads</NavDropdown.Item>
+    </NavDropdown>
   </Fragment>
 )
 

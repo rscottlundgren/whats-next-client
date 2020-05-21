@@ -54,33 +54,6 @@ class SingleCardSpread extends Component {
       }))
   }
 
-  handleDelete = (event) => {
-    event.preventDefault()
-
-    const { msgAlert } = this.props
-
-    axios({
-      url: `${apiUrl}/singleCardSpreads/${this.props.match.params.id}`,
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Token token=${this.props.user.token}`
-      }
-    })
-      .then(() => msgAlert({
-        heading: 'Delete Single Card Spread Thought Success',
-        message: messages.deleteSCSThoughtsSuccessful,
-        variant: 'success'
-      }))
-      .then(() => {
-        this.setState({ thoughts: null })
-      })
-      .catch(error => msgAlert({
-        heading: 'Delete Single Card Spread Thought Failure ' + error.message,
-        message: messages.deleteSCSThoughtsFailure,
-        variant: 'danger'
-      }))
-  }
-
   componentDidMount () {
     axios({
       url: `${apiUrl}/singleCardSpreads/${this.props.match.params.id}`,
@@ -92,7 +65,7 @@ class SingleCardSpread extends Component {
       .then((res) => {
         let tarotCard
         let tarotImage
-        const thoughts = res.data.thoughts
+        const thoughts = res.data.singleCardSpread.thoughts
         if (res.data.singleCardSpread.firstCardObject.arcana === 'major') {
           if (res.data.singleCardSpread.firstCardState === 'analog') {
             tarotCard = res.data.singleCardSpread.firstCardObject.majorArcana.analog
@@ -110,16 +83,15 @@ class SingleCardSpread extends Component {
             tarotImage = res.data.singleCardSpread.firstCardObject.minorArcana.echo.echoFaceIMG
           }
         }
-        this.setState({ tarotCard })
-        this.setState({ tarotImage })
-        this.setState({ thoughts })
+        this.setState({ tarotCard, tarotImage, thoughts })
+        // this.setState({ tarotImage })
+        // this.setState({ thoughts })
       })
       .catch(console.error)
   }
 
   render () {
-    const { tarotCard } = this.state
-    const { tarotImage } = this.state
+    const { tarotCard, tarotImage } = this.state
 
     if (!tarotCard) {
       return 'Loading...'
@@ -127,6 +99,9 @@ class SingleCardSpread extends Component {
     if (!tarotImage) {
       return 'Loading...'
     }
+    // if (!thoughts) {
+    //   return 'Loading...'
+    // }
     return (
       <ScsContainer>
         <Row>
@@ -138,10 +113,10 @@ class SingleCardSpread extends Component {
           </Col>
           <Col>
             <SCSUpdateForm
-              thoughts={this.thoughts}
+              thoughts={this.state.thoughts}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
-              handleDelete={this.handleDelete}/>
+            />
           </Col>
         </Row>
       </ScsContainer>

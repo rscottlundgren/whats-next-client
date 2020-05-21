@@ -9,5 +9,7 @@ export default {
   updateSCSSuccessful: 'Successfully updated your thoughts on this reading.',
   updateSCSFailure: 'Failed to update your thoughts on this reading. Please try again.',
   deleteSCSThoughtsSuccessful: 'Successfully deleted your thoughts on this reading.',
-  deleteSCSThoughtsFailure: 'Failed to delete your thoughts on this reading. Please try again.'
+  deleteSCSThoughtsFailure: 'Failed to delete your thoughts on this reading. Please try again.',
+  indexSCSSuccessful: 'Successfully showing all single card spreads.',
+  indexSCSFailure: 'Failed to load your spreads.'
 }

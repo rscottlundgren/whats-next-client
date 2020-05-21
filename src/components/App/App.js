@@ -10,6 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import SingleCardSpread from '../SingleCardSpread/SingleCardSpread'
 import CreateSingleCardSpread from '../CreateSingleCardSpread/CreateSingleCardSpread'
+import SCSIndex from '../SCSIndex/SCSIndex'
 
 class App extends Component {
   constructor () {
@@ -48,23 +49,26 @@ class App extends Component {
           />
         ))}
         <main>
-          <Route path='/sign-up' render={() => (
+          <Route exact path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
-          <Route path='/sign-in' render={() => (
+          <Route exact path='/sign-in' render={() => (
             <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+          <AuthenticatedRoute user={user} exact path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
+          <AuthenticatedRoute user={user} exact path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/scs/:id' render={({ match }) => (
+          <AuthenticatedRoute user={user} exact path='/scs/:id' render={({ match }) => (
             <SingleCardSpread msgAlert={this.msgAlert} user={user} match={match}/>
           )} />
-          <AuthenticatedRoute user={user} path='/create-scs' render={() => (
+          <AuthenticatedRoute user={user} exact path='/create-scs' render={() => (
             <CreateSingleCardSpread msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/scs' render={() => (
+            <SCSIndex msgAlert={this.msgAlert} user={user}/>
           )} />
         </main>
       </Fragment>
