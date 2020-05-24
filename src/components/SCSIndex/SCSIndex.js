@@ -80,6 +80,8 @@ class SCSIndex extends Component {
 
     if (!spreads) {
       spreadIndexJsx = 'Loading...'
+    } else if (spreads === null) {
+      <h2>You Have No Spreads To Display</h2>
     } else {
       spreadIndexJsx = (
         <ol>

@@ -14,9 +14,6 @@ Back-End    | Website  | https://gentle-cliffs-56174.herokuapp.com/
 ------------|----------|--------------------------------------------------------
 Back-End    | GitHub   | https://github.com/rscottlundgren/whats-next-api
 
-## Installation Instructions
-
-
 ## List of Technologies Used
 - React template
 - Axios
