@@ -98,7 +98,7 @@ class SCSIndex extends Component {
     return (
       <div>
         <h1>Single Card Spread Reading Listing</h1>
-        <h3>Don't see any spreads? Make One Above!</h3>
+        <h3>(If You Do Not See Any Spreads Below, Make One Above)</h3>
         {spreadIndexJsx}
       </div>
     )
